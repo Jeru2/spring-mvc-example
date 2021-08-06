@@ -91,7 +91,56 @@
 				<div class="field">
 					<form:input path="country" />
 				</div>
-			</div>		
+			</div>
+
+			<div class="row">
+				<div class="label">Hobbies</div>
+				<div class="field">
+					<form:checkbox path="hobbyNames" id="drawingCheckbox" value="Drawing" />
+					<label class="sublabel" for="drawingCheckbox">Drawing</label>
+					<form:checkbox path="hobbyNames" id="singingCheckbox" value="Singing" />
+					<label class="sublabel" for="singingCheckbox">Singing</label>
+					<form:checkbox path="hobbyNames" id="dancingCheckbox" value="Dancing" />
+					<label class="sublabel" for="dancingCheckbox">Dancing</label>
+					<form:checkbox path="hobbyNames" id="sketchingCheckbox" value="Sketching" />
+					<label class="sublabel" for="sketchingCheckbox">Sketching</label>
+					<input type="checkbox" id="othersCheckbox" />
+					<label class="sublabel" for="othersCheckbox">Others</label>
+					<form:input path="hobbyNames" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="label">Qualification</div>
+				<div class="field verticalStack">
+					<div class="horizontalCheckboxLabelGroup">
+						<form:checkbox id="highSchoolCheckbox" cssClass="qualificationCheckbox" path="qualification"
+							value="High School(10th)" />
+						<label class="sublabel" for="highSchoolCheckbox">High School(10th)</label>
+					</div>
+					<div class="horizontalCheckboxLabelGroup">
+						<form:checkbox id="higherSchoolCheckbox" cssClass="qualificationCheckbox" path="qualification"
+							value="Higher School(12th)" />
+						<label class="sublabel" for="higherSchoolCheckbox">Higher School(12th)</label>
+					</div>
+					<div class="horizontalCheckboxLabelGroup">
+						<form:checkbox id="graduationCheckbox" cssClass="qualificationCheckbox" path="qualification"
+							value="Graduation(Bachelors)" />
+						<label class="sublabel" for="graduationCheckbox">Graduation(Bachelors)</label>
+					</div>
+					<div class="horizontalCheckboxLabelGroup">
+						<form:checkbox id="postGraduationCheckbox" cssClass="qualificationCheckbox" path="qualification"
+							value="Post Graduation(Masters)" />
+						<label class="sublabel" for="postGraduationCheckbox">Post
+							Graduation(Masters)</label>
+					</div>
+					<div class="horizontalCheckboxLabelGroup">
+						<form:checkbox id="phdCheckbox" cssClass="qualificationCheckbox" path="qualification"
+							value="PhD(Doctorate)" />
+						<label class="sublabel" for="phdCheckbox">PhD(Doctorate)</label>
+					</div>
+				</div>
+			</div>
 			
 			<div class="row">
 				<div class="label">Course Applied For</div>

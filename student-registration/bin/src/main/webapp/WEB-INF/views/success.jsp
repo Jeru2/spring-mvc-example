@@ -33,6 +33,12 @@
 	<hr>
 	country: ${registeredStudent.country}
 	<hr>
+	<c:forEach var="hobby" items="${registeredStudent.hobbies}">  
+	<div>${hobby.name}</div>  
+	</c:forEach>
+	<hr>
+	qualification: ${registeredStudent.qualification}
+	<hr>
 	courseAppliedFor: ${registeredStudent.courseAppliedFor}
 </body>
 </html>
