@@ -8,15 +8,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mindtree.studentregistration.Service.StudentService;
-import com.mindtree.studentregistration.model.Hobby;
 import com.mindtree.studentregistration.model.Student;
+import com.mindtree.studentregistration.service.impl.StudentServiceImpl;
 
 @Controller
 public class StudentController {
 	
 	@Autowired
-	StudentService stuServ;
+	StudentServiceImpl stuServ;
 
    @RequestMapping("/")
    public String index() {
@@ -27,14 +26,12 @@ public class StudentController {
    public String registrationRedirect(ModelMap studentModel)
    {
 	   studentModel.addAttribute("student", new Student());	  
-	   studentModel.addAttribute("hobby", new Hobby());
 	   return "registration";
    }
    @PostMapping("/success")
    public String sayHello(@ModelAttribute("registeredStudent") Student student) {
 	   
-	   Student stu = stuServ.addHobby(student);
-	   stuServ.addStudent(stu);
+	   stuServ.addStudent(student);
       return "success";
    }
 }

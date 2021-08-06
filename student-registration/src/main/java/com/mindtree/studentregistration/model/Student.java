@@ -1,18 +1,13 @@
 package com.mindtree.studentregistration.model;
 
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -21,8 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Student
 {
 	@Id
-	@SequenceGenerator(name = "seqStudent", initialValue = 100, allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqStudent")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	@Column
 	private String firstName;
@@ -47,12 +41,6 @@ public class Student
 	private String state;	
 	@Column
 	private String country;
-	@Transient
-	private List<String> hobbyNames;
-	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
-	private List<Hobby> hobbies;
-	@Column
-	private String qualification;
 	@Column
 	private String courseAppliedFor;
 	
@@ -144,30 +132,6 @@ public class Student
 	{
 		this.country = country;
 	}
-	public List<String> getHobbyNames()
-	{
-		return hobbyNames;
-	}
-	public void setHobbyNames(List<String> hobbyNames)
-	{
-		this.hobbyNames = hobbyNames;
-	}
-	public List<Hobby> getHobbies()
-	{
-		return hobbies;
-	}
-	public void setHobbies(List<Hobby> hobbies)
-	{
-		this.hobbies = hobbies;
-	}
-	public String getQualification()
-	{
-		return qualification;
-	}
-	public void setQualification(String qualification)
-	{
-		this.qualification = qualification;
-	}
 	public String getCourseAppliedFor()
 	{
 		return courseAppliedFor;
@@ -193,7 +157,6 @@ public class Student
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((mobile == null) ? 0 : mobile.hashCode());
 		result = prime * result + ((pincode == null) ? 0 : pincode.hashCode());
-		result = prime * result + ((qualification == null) ? 0 : qualification.hashCode());
 		result = prime * result + ((state == null) ? 0 : state.hashCode());
 		return result;
 	}
@@ -272,12 +235,6 @@ public class Student
 			if (other.pincode != null)
 				return false;
 		} else if (!pincode.equals(other.pincode))
-			return false;
-		if (qualification == null)
-		{
-			if (other.qualification != null)
-				return false;
-		} else if (!qualification.equals(other.qualification))
 			return false;
 		if (state == null)
 		{
